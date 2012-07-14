@@ -14,9 +14,14 @@ end
 
 # @user = Twitter.user.screen_name
 
-get '/' do
+def index
   @friends = Twitter.friend_ids
   @followers = Twitter.follower_ids
+  @first = Twitter.user(@friends.ids.first)
+end
+
+get '/' do
+  index
   slim :index
 end
 
