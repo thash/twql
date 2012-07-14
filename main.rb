@@ -12,12 +12,11 @@ Twitter.configure do |c|
 end
 
 
-@user = Twitter.user.screen_name
-
+# @user = Twitter.user.screen_name
 
 get '/' do
-  @friends = Twitter.friend_ids(@user)
-  @followers = Twitter.follower_ids(@user)
+  @friends = Twitter.friend_ids
+  @followers = Twitter.follower_ids
   slim :index
 end
 
