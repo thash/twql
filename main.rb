@@ -11,6 +11,13 @@ Twitter.configure do |c|
   c.oauth_token_secret = $secret.oauth_token_secret
 end
 
-binding.pry
 
+@user = Twitter.user.screen_name
+
+
+get '/' do
+  @friends = Twitter.friend_ids(@user)
+  @followers = Twitter.follower_ids(@user)
+  slim :index
+end
 
