@@ -1,0 +1,6 @@
+bundle
+.bundle
+secret.yml
+tmp/*
+*.log
+log/*.log
